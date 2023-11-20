@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    return 'Bismillah';
+    return view('index', [
+        'name'=> 'Shahbaz',
+    ]);
 });
 
 Route::get('/hello', function () {
