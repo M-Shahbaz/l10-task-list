@@ -11,8 +11,24 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Bismillah';
+});
+
+Route::get('/hello', function () {
+    return 'Hello';
+})->name('hello');
+
+Route::get('/hallo', function () {
+    return redirect()->route('hello');
+});
+
+Route::get('/greet/{name}', function ($name) {
+    return 'Hello ' . $name . '!';
+});
+
+Route::fallback(function () {
+    return 'Still got somewhere!';
 });
